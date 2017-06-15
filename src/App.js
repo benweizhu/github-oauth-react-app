@@ -21,7 +21,7 @@ class App extends Component {
         <div className="App">
           <AuthButton />
           <ul>
-            <li><Link to="/github-oauth-react-app/public">Public Page</Link></li> 
+            <li><Link to="/github-oauth-react-app/public">Public Page</Link></li>
             <li><Link to="/github-oauth-react-app/protected">Protected Page</Link></li>
           </ul>
           <Route path="/github-oauth-react-app/public" component={Public} />
