@@ -19,8 +19,8 @@ class App extends Component {
         <div className="App">
           <AuthButton />
           <ul>
-            <li><Link to="/public">Public Page</Link></li>
-            <li><Link to="/protected">Protected Page</Link></li>
+            <li><Link to="public">Public Page</Link></li>
+            <li><Link to="protected">Protected Page</Link></li>
           </ul>
           <Route path="/public" component={Public} />
           <Route path="/login" component={Login} />
@@ -52,7 +52,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Component {...props} />
     ) : (
         <Redirect to={{
-          pathname: '/login',
+          pathname: 'login',
           state: { from: props.location }
         }} />
       )
