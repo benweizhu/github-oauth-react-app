@@ -12,6 +12,8 @@ import fakeAuth from './Auth/FakeAuth.js';
 
 import './App.css';
 
+// React-Router has issues with reactive link, and I have to deploy app to this repo github pages
+// Thus, ends up with "/github-oauth-react-app/public"
 class App extends Component {
   render() {
     return (
@@ -19,12 +21,12 @@ class App extends Component {
         <div className="App">
           <AuthButton />
           <ul>
-            <li><Link to="public">Public Page</Link></li>
-            <li><Link to="protected">Protected Page</Link></li>
+            <li><Link to="/github-oauth-react-app/public">Public Page</Link></li> 
+            <li><Link to="/github-oauth-react-app/protected">Protected Page</Link></li>
           </ul>
-          <Route path="/public" component={Public} />
-          <Route path="/login" component={Login} />
-          <PrivateRoute path="/protected" component={Protected} />
+          <Route path="/github-oauth-react-app/public" component={Public} />
+          <Route path="/github-oauth-react-app/login" component={Login} />
+          <PrivateRoute path="/github-oauth-react-app/protected" component={Protected} />
         </div>
       </Router>
     );
@@ -38,7 +40,7 @@ const AuthButton = withRouter(({ history }) => (
   fakeAuth.isAuthenticated ? (
     <p>
       Welcome! <button onClick={() => {
-        fakeAuth.signout(() => history.push('/'))
+        fakeAuth.signout(() => history.push('/github-oauth-react-app/'))
       }}>Sign out</button>
     </p>
   ) : (
@@ -52,7 +54,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Component {...props} />
     ) : (
         <Redirect to={{
-          pathname: 'login',
+          pathname: '/github-oauth-react-app/login',
           state: { from: props.location }
         }} />
       )

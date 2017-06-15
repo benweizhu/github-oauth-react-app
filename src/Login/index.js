@@ -20,7 +20,7 @@ class Login extends React.Component {
     }
 
     render() {
-        const { from } = this.props.location.state || { from: { pathname: '/' } }
+        const { from } = this.props.location.state || { from: { pathname: '/github-oauth-react-app/' } }
         const { redirectToReferrer } = this.state
 
         if (redirectToReferrer) {
